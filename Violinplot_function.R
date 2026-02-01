@@ -1,5 +1,4 @@
-vio_f <- function(Feature_All, Index, y){
-  mydata <- Feature_All[Index, ]
+vio_f <- function(mydata,  y){
   p <- ggplot(mydata,aes(x=Group,y=!!sym(y),fill=Group))+  # Var
     geom_half_violin(position=position_nudge(x=-0.2),side="l",width=0.5,color=NA)+
     geom_boxplot(width=0.25,size=1.2,outlier.color='black', fill = NA)+
@@ -15,4 +14,5 @@ vio_f <- function(Feature_All, Index, y){
           axis.title=element_text(color='black',size=20), legend.position="none")
   p
 }
+
 
