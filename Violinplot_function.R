@@ -1,9 +1,9 @@
 vio_f <- function(Feature_All, Index, y){
   mydata <- Feature_All[Index, ]
-  p <- ggplot(mydata,aes(x=DX_a,y=!!sym(y),fill=DX_a))+  # Var
+  p <- ggplot(mydata,aes(x=Group,y=!!sym(y),fill=Group))+  # Var
     geom_half_violin(position=position_nudge(x=-0.2),side="l",width=0.5,color=NA)+
     geom_boxplot(width=0.25,size=1.2,outlier.color='black', fill = NA)+
-    geom_sina(alpha=0.5,size=2,aes(color=DX_a), maxwidth=0.5)+ # Var
+    geom_sina(alpha=0.5,size=2,aes(color=Group), maxwidth=0.5)+ # Var
     stat_summary(fun.y = mean, geom = "point", shape = 23, size=4, fill = "black")+
     scale_fill_manual(values=c("#4B7AA3","#CA3430","#5AA058"))+
     scale_color_manual(values=c("#4B7AA3","#CA3430","#5AA058"))+
@@ -15,3 +15,4 @@ vio_f <- function(Feature_All, Index, y){
           axis.title=element_text(color='black',size=20), legend.position="none")
   p
 }
+
